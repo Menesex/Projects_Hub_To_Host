@@ -3,7 +3,10 @@ const getAPIUrl = () => {
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return 'http://localhost:8000/api/plants';
   }
-  return 'https://mene-project-portfolio.onrender.com/api/plants';
+  // Use current domain for production (works with any Render URL)
+  const protocol = window.location.protocol;
+  const host = window.location.host;
+  return `${protocol}//${host}/api/plants`;
 };
 
 const API_URL = getAPIUrl();
