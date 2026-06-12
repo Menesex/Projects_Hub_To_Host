@@ -10,12 +10,25 @@ router = APIRouter(prefix="/api/plants", tags=["Plant Detection"])
 async def identify(file: UploadFile = File(...), lang: str = "es"):
     # 1. Validar que sea una imagen
     if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="El archivo debe ser una imagen")
+        return {
+            "success": False,
+            "error": "El archivo debe ser una imagen. Recibido: " + file.content_type
+        }
 
     try:
         # 2. Leer imagen y llamar al servicio de Groq
         image_bytes = await file.read()
+
+        # Validar que la imagen no esté vacía
+        if not image_bytes or len(image_bytes) == 0:
+            return {
+                "success": False,
+                "error": "La imagen está vacía"
+            }
+
+        print(f"[Plant Detect] Recibida imagen: {len(image_bytes)} bytes, tipo: {file.content_type}")
         raw_response = identify_plant(image_bytes, lang)
+        print(f"[Plant Detect] Respuesta de Groq: {raw_response[:100]}...")
 
         # 3. Limpieza manual de bloques Markdown (```json ... ```)
         clean_json = raw_response.strip()
