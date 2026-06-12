@@ -6,7 +6,7 @@ import json
 router = APIRouter(prefix="/api/plants", tags=["Plant Detection"])
 
 
-@router.post("/identify", response_model=IdentificationResult)
+@router.post("/identify")
 async def identify(file: UploadFile = File(...), lang: str = "es"):
     # 1. Validar que sea una imagen
     if not file.content_type.startswith("image/"):
