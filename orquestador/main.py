@@ -11,6 +11,7 @@ from apps.todo_list.router import router as todo_router
 from apps.todo_list import models as todo_models  # noqa: registers tables with Base
 from apps.employees.router import router as employees_router
 from apps.employees import models as employees_models  # noqa: registers tables with Base
+from apps.plant_detect.router import router as plant_router
 
 # ==================== PATH RESOLUTION ====================
 BASE_DIR = Path(__file__).resolve().parent  # orquestador/
@@ -39,6 +40,7 @@ app.add_middleware(
 
 app.include_router(todo_router)
 app.include_router(employees_router)
+app.include_router(plant_router)
 
 # ==================== STATIC FILES MOUNTING ====================
 
@@ -67,6 +69,15 @@ if employees_dist.exists():
 else:
     print(f"⚠ Employees Manager dist not found: {employees_dist}")
     print(f"  Expected at: {employees_dist}")
+
+# Mount Plant Detect frontend (compiled dist/)
+plant_dist = PROJECTS_DIR / "plant_detect" / "frontend" / "dist"
+if plant_dist.exists():
+    print(f"✓ Mounting Plant Detect: {plant_dist}")
+    app.mount("/plant-detect", StaticFiles(directory=str(plant_dist), html=True), name="plant-detect")
+else:
+    print(f"⚠ Plant Detect dist not found: {plant_dist}")
+    print(f"  Expected at: {plant_dist}")
 
 print()
 

@@ -23,10 +23,21 @@
       "Bash(cp -r \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\static\\\\css\" \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\frontend\\\\dist\\\\css\")",
       "Bash(grep -E \"\\\\.py$|__pycache__\")",
       "Bash(rm -rf \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\.git\")",
-      "Bash(rm -f \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\.env.example\")"
+      "Bash(rm -f \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\.env.example\")",
+      "Bash(git ls-tree *)",
+      "Bash(awk '{print $9 \" \\(\" $5 \"\\)\"}')",
+      "Bash(awk '{print $9}')",
+      "Bash(grep \"\\\\.db$\\\\|\\\\.sqlite\")",
+      "Bash(grep \"\\\\.env$\")",
+      "Bash(\n# Remover .git anidado\nrm -rf \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\plant_detect\\\\.git\"\necho \"✓ Removed nested .git\"\n\n# Analizar estructura\necho \"\"\necho \"📁 ESTRUCTURA DEL PROYECTO CLONADO:\"\nfind \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\plant_detect\" -type f -name \"*.py\" -o -name \"*.html\" -o -name \"*.json\" | head -20\n)",
+      "Bash(xargs cat)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(rm -rf \"projects/plant_detect/testss\")"
     ],
     "additionalDirectories": [
-      "c:\\Users\\jjmen\\OneDrive\\Documentos\\Software\\MeneProjectPortfolio\\projects\\todo_list"
+      "c:\\Users\\jjmen\\OneDrive\\Documentos\\Software\\MeneProjectPortfolio\\projects\\todo_list",
+      "c:\\Users\\jjmen\\OneDrive\\Documentos\\Software\\MeneProjectPortfolio\\projects\\plant_detect\\.git"
     ]
   }
 }

@@ -6,6 +6,19 @@
   },
   "projects": [
     {
+      "id": "plant-detect",
+      "name": "🌿 Plant Detect Yourself",
+      "description": "Identificador de plantas con IA. Sube una foto y obtén información detallada: nombre común, científico, cuidados, toxicidad y datos curiosos.",
+      "image": "plant-detect.png",
+      "url": "/plant-detect",
+      "buttonText": "Identificar Planta",
+      "buttonColor": "from-green-500 to-emerald-600",
+      "hoverColor": "from-green-600 to-emerald-700",
+      "iconColor": "from-green-400 to-emerald-600",
+      "tags": ["React", "Groq API", "IA", "Computer Vision"],
+      "priority": 1
+    },
+    {
       "id": "employees-manager",
       "name": "Employees Manager",
       "description": "Sistema de gestión integral de empleados. Crea, actualiza, jubila y administra registros de personal con interfaz intuitiva.",
@@ -16,7 +29,7 @@
       "hoverColor": "from-blue-700 to-purple-700",
       "iconColor": "from-blue-500 to-purple-600",
       "tags": ["FastAPI", "SQLAlchemy", "PostgreSQL"],
-      "priority": 1
+      "priority": 2
     },
     {
       "id": "todo-list",
@@ -29,7 +42,7 @@
       "hoverColor": "from-cyan-700 to-blue-700",
       "iconColor": "from-cyan-500 to-blue-600",
       "tags": ["HTML5", "CSS3", "JavaScript"],
-      "priority": 2
+      "priority": 3
     },
     {
       "id": "polygraphix",
@@ -42,7 +55,7 @@
       "hoverColor": "from-green-700 to-cyan-700",
       "iconColor": "from-green-500 to-cyan-600",
       "tags": ["Python", "Streamlit", "Graphviz"],
-      "priority": 3
+      "priority": 4
     }
   ]
 }
