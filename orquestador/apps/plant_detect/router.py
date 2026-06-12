@@ -34,16 +34,19 @@ async def identify(file: UploadFile = File(...), lang: str = "es"):
         # 5. Validar con Pydantic
         validated_data = IdentificationResult(**data_dict)
 
-        # 6. Respuesta final
-        return validated_data
+        # 6. Respuesta final con estructura esperada por frontend
+        return {
+            "success": True,
+            "data": validated_data.model_dump()
+        }
 
     except json.JSONDecodeError:
-        raise HTTPException(
-            status_code=500,
-            detail="La IA no devolvió un JSON válido"
-        )
+        return {
+            "success": False,
+            "error": "La IA no devolvió un JSON válido"
+        }
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error en procesamiento: {str(e)}"
-        )
+        return {
+            "success": False,
+            "error": f"Error en procesamiento: {str(e)}"
+        }
