@@ -3,8 +3,11 @@ from .models import Task, Step
 from .schemas import TaskCreate, TaskUpdate, StepCreate
 
 
-def get_tasks(db: Session, user_id: str = "guest_user"):
-    return db.query(Task).filter(Task.user_id == user_id).all()
+def get_tasks(db: Session, user_id: str = None):
+    query = db.query(Task)
+    if user_id:
+        query = query.filter(Task.user_id == user_id)
+    return query.all()
 
 
 def create_task(db: Session, task: TaskCreate, user_id: str = "guest_user"):

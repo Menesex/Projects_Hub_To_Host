@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "PowerShell(New-Item -ItemType File -Path \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\orquestador\\\\__init__.py\" -Force)",
+      "PowerShell(cd \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\orquestador\"; $env:VIRTUAL_ENV = \\(Resolve-Path \".\\\\venv\"\\).Path; $env:PATH = \"$env:VIRTUAL_ENV\\\\Scripts;$env:PATH\"; python -c \"import sqlalchemy; print\\(sqlalchemy.__version__\\)\")",
+      "PowerShell(Rename-Item \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\todo-list\" \"todo_list\")",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\orquestador\\\\apps\\\\todo_list\" -Force)",
+      "PowerShell(New-Item -ItemType File -Path \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\orquestador\\\\apps\\\\__init__.py\" -Force)",
+      "PowerShell(New-Item -ItemType File -Path \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\orquestador\\\\apps\\\\todo_list\\\\__init__.py\" -Force)",
+      "Bash(cd \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\" && rm -rf projects/todo_list/.git && git status --short)",
+      "Bash(git commit -m 'Add static assets and compiled frontend dist *)",
+      "Bash(git push *)",
+      "Bash(git rm *)",
+      "Bash(git reset *)",
+      "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\jjmen\\OneDrive\\Documentos\\Software\\MeneProjectPortfolio\\projects\\todo_list"
+    ]
+  }
+}
