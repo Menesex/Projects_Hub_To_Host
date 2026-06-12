@@ -13,7 +13,17 @@
       "Bash(git push *)",
       "Bash(git rm *)",
       "Bash(git reset *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(python -m py_compile main.py)",
+      "Bash(python -c \"from apps.employees.router import router; from apps.employees import models; print\\('✓ Employees module imports correctly'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -m py_compile apps/employees/models.py apps/employees/schemas.py apps/employees/crud.py apps/employees/router.py)",
+      "Bash(cp -r \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\templates\\\\index.html\" \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\frontend\\\\dist\\\\index.html\")",
+      "Bash(cp -r \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\static\\\\js\" \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\frontend\\\\dist\\\\js\")",
+      "Bash(cp -r \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\static\\\\css\" \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\frontend\\\\dist\\\\css\")",
+      "Bash(grep -E \"\\\\.py$|__pycache__\")",
+      "Bash(rm -rf \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\.git\")",
+      "Bash(rm -f \"c:\\\\Users\\\\jjmen\\\\OneDrive\\\\Documentos\\\\Software\\\\MeneProjectPortfolio\\\\projects\\\\employees_manager\\\\.env.example\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\jjmen\\OneDrive\\Documentos\\Software\\MeneProjectPortfolio\\projects\\todo_list"

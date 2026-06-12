@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Database (local only — never commit this)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables (contains secrets — use .env.example instead)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+.claude

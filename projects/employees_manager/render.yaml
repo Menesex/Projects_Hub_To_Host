@@ -1,0 +1,11 @@
+# Render.com deployment config
+# Free web service — no database included here (Render killed free DBs in 2024)
+# Add DATABASE_URL manually in Render's Environment Variables dashboard
+
+services:
+  - type: web
+    name: employee-management-system
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT

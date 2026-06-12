@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mene-HR | Gestión de Empleados</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Empleados</h1>
+
+    <div class="controls">
+        <select id="searchType">
+            <option value="nombre">Nombre</option>
+            <option value="id">ID Empleado</option>
+            <option value="access_id">Access ID</option>
+        </select>
+        
+        <input type="text" id="searchInput" placeholder="Escribe para buscar..." onkeyup="searchEmployees()">
+        
+        <select id="statusFilter" onchange="loadEmployees()">
+            <option value="active">Solo Activos</option>
+            <option value="retired">Solo Retirados</option>
+            <option value="all">Mostrar Todos</option>
+        </select>
+
+        <button class="btn-primary" onclick="openModal()">+ Nuevo Empleado</button>
+    </div>
+
+        <div class="table-container">
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Access ID</th>
+                        <th>Área</th>
+                        <th>Cargo</th>
+                        <th>Hora Entrada</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    
+<div id="employeeModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h3>Registrar Nuevo Empleado</h3>
+        <input type="text" id="newName" placeholder="Nombre Completo">
+        <input type="text" id="newAccessId" placeholder="ID de Tarjeta (Access ID)">
+        <input type="text" id="newArea" placeholder="Área / Departamento">
+        <input type="text" id="newPosition" placeholder="Cargo">
+        <input type="time" id="newEntryHour" value="08:00">
+        <br><br>
+        <button class="btn-primary" onclick="saveEmployee()">Guardar Empleado</button>
+        <button onclick="closeModal()">Cancelar</button>
+    </div>
+</div>
+    <script src="/static/js/main.js"></script>
+    
+
+</body>
+</html>

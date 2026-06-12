@@ -8,7 +8,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from apps.todo_list.router import router as todo_router
-from apps.todo_list import models  # noqa: registers tables with Base
+from apps.todo_list import models as todo_models  # noqa: registers tables with Base
+from apps.employees.router import router as employees_router
+from apps.employees import models as employees_models  # noqa: registers tables with Base
 
 # ==================== PATH RESOLUTION ====================
 BASE_DIR = Path(__file__).resolve().parent  # orquestador/
@@ -36,6 +38,7 @@ app.add_middleware(
 )
 
 app.include_router(todo_router)
+app.include_router(employees_router)
 
 # ==================== STATIC FILES MOUNTING ====================
 
@@ -55,6 +58,15 @@ if todo_dist.exists():
 else:
     print(f"⚠ To-Do List dist not found: {todo_dist}")
     print(f"  Expected at: {todo_dist}")
+
+# Mount Employees Manager frontend (compiled dist/)
+employees_dist = PROJECTS_DIR / "employees_manager" / "frontend" / "dist"
+if employees_dist.exists():
+    print(f"✓ Mounting Employees Manager: {employees_dist}")
+    app.mount("/employees", StaticFiles(directory=str(employees_dist), html=True), name="employees")
+else:
+    print(f"⚠ Employees Manager dist not found: {employees_dist}")
+    print(f"  Expected at: {employees_dist}")
 
 print()
 
@@ -79,11 +91,6 @@ async def get_hub():
         developer=data.get("developer", {}),
         projects=data.get("projects", [])
     )
-
-
-@app.get("/api/employees", response_class=HTMLResponse)
-async def get_employees():
-    return HTMLResponse("<h1>Employees Manager - Próximamente</h1>")
 
 
 @app.get("/graphix", response_class=HTMLResponse)

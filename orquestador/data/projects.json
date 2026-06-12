@@ -8,14 +8,14 @@
     {
       "id": "employees-manager",
       "name": "Employees Manager",
-      "description": "Sistema completo de gestión de empleados con backend robusto, autenticación segura y base de datos relacional.",
+      "description": "Sistema de gestión integral de empleados. Crea, actualiza, jubila y administra registros de personal con interfaz intuitiva.",
       "image": "employees-manager.png",
-      "url": "/api/employees",
-      "buttonText": "Explorar API",
+      "url": "/employees",
+      "buttonText": "Abrir Aplicación",
       "buttonColor": "from-blue-600 to-purple-600",
       "hoverColor": "from-blue-700 to-purple-700",
       "iconColor": "from-blue-500 to-purple-600",
-      "tags": ["FastAPI", "Python", "PostgreSQL"],
+      "tags": ["FastAPI", "SQLAlchemy", "PostgreSQL"],
       "priority": 1
     },
     {

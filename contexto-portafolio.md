@@ -1,33 +1,36 @@
-# Contexto de Arquitectura Definitivo: Projects Hub (Backend Unified)
-**Developer:** Juan José Meneses Jaramillo
-**Enfoque:** Monorrepósito optimizado para Hosting Gratuito (Render, 512MB RAM). Todo se unifica bajo un único proceso de Python (FastAPI) para compartir la misma memoria RAM y evitar la hibernación múltiple.
+# Contexto del Proyecto: Multi-App Portfolio Hub
 
-## 1. Estrategia de Integración Integrada (KISS Avanzado)
-- **Frontends (React/Vite):** Se compilan con `npm run build`. El FastAPI del orquestador sirve la carpeta `dist/` resultante como archivos estáticos con `app.mount()` (0% impacto de RAM en servidor).
-- **Backends (APIs):** Las rutas de backend de los proyectos (como las APIs de To-Do List o Employees Manager) se importan o se escriben directamente dentro del código del Orquestador usando `APIRouter` de FastAPI. Comparten el mismo ciclo de vida y la misma instancia de ejecución.
-- **Base de Datos:** En desarrollo local se centraliza usando archivos SQLite independientes dentro de `orquestador/data/`. En producción, apuntarán a variables de entorno (.env).
+## 🌌 Estado Actual del Sistema
+- **Arquitectura:** Monorepo orquestador basado en FastAPI (Backend unificado) que sirve múltiples aplicaciones de Frontend estáticas (compiladas en `dist/` con Vite).
+- **Base de Datos:** PostgreSQL en Supabase en producción (funcionando al 100% con la contraseña e hilos de conexión activos). SQLite para desarrollo local (`app.db`).
+- **Despliegue:** Hosteado exitosamente en Render como un único Web Service dinámico.
+  - Root Directory: `.` (Raíz)
+  - Build Command: `cd orquestador && pip install -r requirements.txt`
+  - Start Command: `cd orquestador && uvicorn main:app --host 0.0.0.0 --port $PORT`
 
-## 2. Estructura Real y Limpia del Proyecto
+## 📂 Estructura del Repositorio Real
 MeneProjectPortfolio/
-├── orquestador/                # El ÚNICO servidor vivo (FastAPI)
-│   ├── main.py                 # Orquestador central + Rutas de APIs unificadas
-│   ├── requirements.txt
-│   ├── Procfile
-│   ├── data/
-│   │   ├── projects.json       # Configuración dinámica de las tarjetas
-│   │   └── todo_list.db        # Base de datos SQLite local para el proyecto 1
-│   ├── templates/
-│   │   └── dashboard.html      # UI interactiva (Tailwind CSS)
-│   └── static/
-│       └── images/             # Screenshots o placeholders de respaldo
-│
-├── projects/
-│   └── todo-list/              # Código fuente desacoplado del Proyecto 1
-│       ├── frontend/           # Proyecto en React/Vite
-│       │   └── dist/           # Carpeta compilada que lee el orquestador
-│       └── backend/            # Lógica de Python/FastAPI copiada/referenciada al Hub
-│
-├── venv/                       # Único entorno virtual global
-├── .env                        # Secretos y credenciales locales (Gitignored)
-├── .env.example
-└── README.md
+├── orquestador/              ← Aplicación FastAPI central (Lobby)
+│   ├── main.py              ← Punto de entrada (Router central y montajes)
+│   ├── database.py          ← Configuración de SQLAlchemy con variables de entorno
+│   ├── requirements.txt     
+│   ├── apps/
+│   │   └── todo_list/       ← Backend modular de la App 1 (Modelos, routers, crud)
+│   ├── static/              ← Assets estáticos del lobby
+│   └── templates/           ← dashboard.html (El home del portafolio)
+└── projects/
+    └── todo_list/
+        └── frontend/
+            └── dist/        ← Código React compilado de la App 1
+
+## 🚀 Nueva Misión: Integrar "Employees Manager"
+Queremos clonar e integrar el segundo proyecto al ecosistema sin romper la estructura modular establecida.
+
+### Repositorio a clonar:
+`https://github.com/Menesex/Employees_manager`
+
+### Objetivo final de carpetas:
+- Clonar el repositorio en: `projects/employees_manager/`
+- Crear el módulo de backend en: `orquestador/apps/employees/` (replicando la lógica de models, schemas, crud y router de la nueva app).
+- Compilar el frontend de empleados e integrarlo en `main.py` mediante un nuevo montaje estático (`app.mount("/employees", ...)`).
+- Actualizar `orquestador/data/projects.json` para que el proyecto aparezca dinámicamente en el Lobby principal.
