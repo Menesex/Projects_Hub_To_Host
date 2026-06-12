@@ -16,6 +16,9 @@ build/
 develop-eggs/
 dist/
 downloads/
+
+# Exception: Allow frontend dist/ directories for static asset serving
+!projects/*/frontend/dist/
 eggs/
 .eggs/
 lib/
