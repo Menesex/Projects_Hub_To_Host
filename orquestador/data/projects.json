@@ -56,6 +56,19 @@
       "iconColor": "from-green-500 to-cyan-600",
       "tags": ["Python", "Streamlit", "Graphviz"],
       "priority": 4
+    },
+    {
+      "id": "mene-deal-games-finder",
+      "name": "🎮 Mene Deal Games Finder",
+      "description": "Buscador y comparador de ofertas de videojuegos en tiempo real vía CheapShark API. Filtrá por precio, tienda y descuento, o compará un juego puntual entre todas las tiendas donde está disponible.",
+      "image": "menedeal.png",
+      "url": "https://mene-deal-games-finder-ekbabbbf55qnq9ysc7ffez.streamlit.app/",
+      "buttonText": "Buscar Ofertas",
+      "buttonColor": "from-red-500 to-orange-500",
+      "hoverColor": "from-red-600 to-orange-600",
+      "iconColor": "from-red-400 to-orange-500",
+      "tags": ["Streamlit", "Python", "CheapShark API"],
+      "priority": 5
     }
   ]
 }
