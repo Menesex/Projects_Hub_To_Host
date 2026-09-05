@@ -8,7 +8,7 @@ def identify_plant(image_bytes: bytes, lang: str = "es") -> str:
     b64 = base64.b64encode(image_bytes).decode("utf-8")
 
     response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        model="qwen/qwen3.8-27b",
         messages=[{
             "role": "user",
             "content": [
